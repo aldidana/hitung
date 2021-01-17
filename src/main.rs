@@ -1,16 +1,31 @@
 use std::io;
 use std::io::Write;
 
+use inkwell::context::Context;
+
 mod expression;
+mod jit;
 mod lexer;
 mod parser;
 mod token;
 
-use lexer::Lexer;
-use parser::Parser;
+use jit::Compiler;
 
 fn main() {
+    let mut debug = false;
+
+    for arg in std::env::args() {
+        match arg.as_str() {
+            "debug" => debug = true,
+            _ => (),
+        }
+    }
+
+    let context = Context::create();
+    let mut compiler = Compiler::new(&context, debug);
+
     loop {
+        // repl
         println!();
         print!("> ");
 
@@ -22,13 +37,12 @@ fn main() {
             .read_line(&mut input)
             .expect("Could not read from standard input.");
 
-        let lexer = Lexer::new(input.as_str());
-        let result = lexer.lex();
-
-        let mut parser = Parser::new(result);
-        match parser.expr(0) {
-            Ok(expression) => println!("Result {:?}", expression),
-            Err(err) => eprintln!("Error {:?}", err),
+        match compiler.compile_source(input.as_str()) {
+            Ok(result) => println!("{}", result),
+            Err(err) => {
+                eprintln!("Error {:?}", err);
+                break
+            },
         }
     }
 }
