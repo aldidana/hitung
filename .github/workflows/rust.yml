@@ -14,6 +14,10 @@ jobs:
     name: Test Suite
     runs-on: ubuntu-latest
     steps:
+      - uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "10.0"
+          directory: ${{ runner.temp }}/llvm
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
