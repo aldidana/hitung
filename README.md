@@ -1,13 +1,13 @@
 # Hitung
 
-Hitung is a very simple programming language for calculation.
+Hitung is a very simple toy programming language for calculation.
 
 ## Motivation
 
 Mostly for Indonesian who want to learn how programming language works. You can read the tutorial for this on my blog here in Bahasa Indonesia
-1. 
-2.
-3.
+1. https://aldidana.com/membuat-bahasa-pemrograman-rust-llvm-lexer/
+2. soon
+3. soon
 
 
 ## Process
