@@ -6,9 +6,8 @@ Hitung is a very simple toy programming language for calculation.
 
 Mostly for Indonesian who want to learn how programming language works. You can read the tutorial for this on my blog here in Bahasa Indonesia
 1. https://aldidana.com/membuat-bahasa-pemrograman-rust-llvm-lexer/
-2. soon
-3. soon
-
+2. https://aldidana.com/membuat-bahasa-pemrograman-rust-llvm-parser/
+3. https://aldidana.com/membuat-bahasa-pemrograman-rust-llvm-jit-compiler/
 
 ## Process
 1. Lexical Analysis
